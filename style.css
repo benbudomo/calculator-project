@@ -1,0 +1,64 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+}
+
+header {
+    text-align: center;
+}
+
+#display {
+    border: 1px solid black;
+    width: 508px;
+    height: 100px;
+    margin: 70px auto auto auto;
+    text-align: right;
+    line-height: 80px;
+    font-size: 50px;
+    letter-spacing: 5px;
+    position: relative;
+}
+
+#calculatorContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 0px;
+    border-top: none;
+    font-size: 35px;
+    text-align: center;
+    width: 520px;
+    height: 500px;
+    margin: 0px auto auto auto;
+    position: relative;
+}
+
+.gridButton {
+    height: 115px;
+    width: 120px;
+    background-color: white;
+    margin: auto;
+    border: none;
+    text-align: center;
+    line-height: 80px;
+    font-size: 40px;
+    border: 1px solid black;
+    position: relative;
+}
+
+#mainCharacters {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 130px);
+    width: 390px;
+    height: 500px;
+}
+
+#otherCharacters {
+    background-color: white;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 130px;
+    height: 500px;
+    color: black;
+}
