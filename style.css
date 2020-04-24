@@ -6,6 +6,7 @@ body {
 
 header {
     text-align: center;
+    font-size: 36px;
 }
 
 #display {
@@ -34,14 +35,14 @@ header {
 }
 
 .gridButton {
-    height: 115px;
+    height: 100px;
     width: 120px;
     background-color: white;
     margin: auto;
     border: none;
     text-align: center;
-    line-height: 80px;
-    font-size: 40px;
+    line-height: 60px;
+    font-size: 30px;
     border: 1px solid black;
     position: relative;
 }
