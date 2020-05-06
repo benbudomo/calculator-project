@@ -29,3 +29,7 @@ function operate () {
         divideNumbers(userFirstNumber, userSecondNumber);
     }
 }
+
+function clear () {
+    
+}
