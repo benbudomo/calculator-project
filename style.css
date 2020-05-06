@@ -9,16 +9,28 @@ header {
     font-size: 36px;
 }
 
-#display {
+#outputDisplay {
     border: 1px solid black;
-    width: 508px;
+    background-color: rgba(0, 0, 0, .75);
+    width: 488px;
     height: 100px;
     margin: 70px auto auto auto;
-    text-align: right;
-    line-height: 80px;
-    font-size: 50px;
-    letter-spacing: 5px;
-    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+#outputDisplay, #historyOutput {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+#outputDisplay, #currentOutput {
+    color: white;
+    font-size: 2.5rem;
 }
 
 #calculatorContainer {
@@ -40,10 +52,24 @@ header {
     background-color: white;
     margin: auto;
     border: none;
+    outline: none;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    /* border: 1px solid black; */
+    position: relative;
+}
+
+.gridButton:hover {
+    height: 100px;
+    width: 120px;
+    background-color: white;
+    margin: auto;
     text-align: center;
     line-height: 60px;
     font-size: 30px;
     border: 1px solid black;
+    outline: none;
     position: relative;
 }
 
