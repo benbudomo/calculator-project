@@ -9,32 +9,33 @@
         <div id="wrapper">
             <header>The Calculator</header>
             <div id="outputDisplay">
-                <div id="historyOutput"> 123 +</div>
-                <div id="currentOutput">456</div>
+                <div dataPreviousOperand id="historyOutput"></div>
+                <div dataCurrentOperand id="currentOutput"></div>
             </div>
             <div id="calculatorContainer">
                 <div id="mainCharacters">
-                    <button dataAllClear class="gridButton" type="button">Clear</button> 
-                    <button class="gridButton" type="button">DEL</button>
-                    <button class="gridButton" type="button">7</button>
-                    <button class="gridButton" type="button">8</button>
-                    <button class="gridButton" type="button">9</button>
-                    <button class="gridButton" type="button">4</button>
-                    <button class="gridButton" type="button">5</button>
-                    <button class="gridButton" type="button">6</button>
-                    <button class="gridButton" type="button">1</button>
-                    <button class="gridButton" type="button">2</button>
-                    <button class="gridButton" type="button">3</button>
-                    <button class="gridButton" type="button">+/-</button>
-                    <button class="gridButton" type="button">0</button>
-                    <button class="gridButton" type="button">.</button>
+                    <button dataAllClear class="gridButton" type="button">C</button> 
+                    <button dataDelete class="gridButton" type="button">DEL</button>
+                    <button class="gridButton" type="button">%</button>
+                    <button dataNumber class="gridButton" type="button">7</button>
+                    <button dataNumber class="gridButton" type="button">8</button>
+                    <button dataNumber class="gridButton" type="button">9</button>
+                    <button dataNumber class="gridButton" type="button">4</button>
+                    <button dataNumber class="gridButton" type="button">5</button>
+                    <button dataNumber class="gridButton" type="button">6</button>
+                    <button dataNumber class="gridButton" type="button">1</button>
+                    <button dataNumber class="gridButton" type="button">2</button>
+                    <button dataNumber class="gridButton" type="button">3</button>
+                    <button dataNumber class="gridButton" type="button">+/-</button>
+                    <button dataNumber class="gridButton" type="button">0</button>
+                    <button dataNumber class="gridButton" type="button">.</button>
                 </div>
                 <div id="otherCharacters">
-                    <button class="gridButton" type="button">=</button>
-                    <button class="gridButton" type="button">+</button>
-                    <button class="gridButton" type="button">-</button>
-                    <button class="gridButton" type="button">X</button>
-                    <button class="gridButton" type="button">/</button>
+                    <button dataEquals class="gridButton" type="button">=</button>
+                    <button dataOperation class="gridButton" type="button">+</button>
+                    <button dataOperation class="gridButton" type="button">-</button>
+                    <button dataOperation class="gridButton" type="button">X</button>
+                    <button dataOperation class="gridButton" type="button">/</button>
                 </div>
             </div>
         </div>
