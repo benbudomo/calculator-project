@@ -1,35 +1,105 @@
-function addNumbers(numberOne, numberTwo) {
-    console.log(Number(numberOne) + Number(numberTwo));
-}
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement) {
+        this.previousOperandTextElement = previousOperandTextElement;
+        this.currentOperandTextElement = currentOperandTextElement;
+        this.clear();
+    }
 
-function subtractNumbers(numberOne, numberTwo) {
-    console.log(Number(numberOne) - Number(numberTwo));
-}
+    clear() {
+        this.currentOperand = '';
+        this.previousOperand = '';
+        this.operation = undefined;
+    }
 
-function multiplyNumbers(numberOne, numberTwo) {
-    console.log(Number(numberOne) * Number(numberTwo));
-}
+    delete() {
+        this.currentOperand = this.currentOperand.toString().slice(0, -1);
+    }
 
-function divideNumbers(numberOne, numberTwo) {
-    console.log(Number(numberOne) / Number(numberTwo));
-}
+    appendNumber(number) {
+        if(number === '.' && this.currentOperand.includes('.')) return;
+        this.currentOperand = this.currentOperand.toString() + number.toString();
+    }
 
-function operate () {
-    let userOperator = prompt('Operator?');
-    let userFirstNumber = prompt('First Number?');
-    let userSecondNumber = prompt('Second Number?');
+    chooseOperation(operation) {
+        if(this.currentOperand === '') return;
+        if(this.previousOperand !== '') {
+            this.compute();
+        }
+        this.operation = operation;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '';
+    }
 
-    if(userOperator == 'add') {
-        addNumbers(userFirstNumber, userSecondNumber);
-    } else if(userOperator == 'subtract') {
-        subtractNumbers(userFirstNumber, userSecondNumber);
-    } else if(userOperator == 'multiply') {
-        multiplyNumbers(userFirstNumber, userSecondNumber);
-    } else if(userOperator == 'divide') {
-        divideNumbers(userFirstNumber, userSecondNumber);
+    compute() {
+        let computation;
+        const previous = parseFloat(this.previousOperand);
+        const current = parseFloat(this.currentOperand);
+        if (isNaN(previous) || isNaN(current)) return;
+        switch (this.operation) {
+            case '+': 
+                computation = previous + current
+                break
+
+            case '-': 
+                computation = previous - current
+                break
+
+            case '*': 
+                computation = previous * current
+                break
+
+            case '/': 
+                computation = previous / current
+                break
+            default:
+                return
+        }
+        this.currentOperand = computation
+        this.operation = undefined
+        this.previousOperand = ''
+    }
+
+    updateDisplay() {
+        this.currentOperandTextElement.innerText = this.currentOperand;
+        this.previousOperandTextElement.innerText = this.previousOperand;
     }
 }
 
-function clear () {
-    
-}
+const numberButtons = document.querySelectorAll('[dataNumber]');
+const operationButtons = document.querySelectorAll('[dataOperation]');
+const equalsButton = document.querySelector('[dataEquals]');
+const deleteButton = document.querySelector('[dataDelete]');
+const allClearButton = document.querySelector('[dataAllClear]');
+const previousOperandTextElement = document.querySelector('[dataPreviousOperand]');
+const currentOperandTextElement = document.querySelector('[dataCurrentOperand]');
+
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText);
+        calculator.updateDisplay();
+    })
+})
+
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText);
+        calculator.updateDisplay();
+    })
+})
+
+equalsButton.addEventListener('click', button => {
+    calculator.compute();
+    calculator.updateDisplay();
+})
+
+allClearButton.addEventListener('click', button => {
+    calculator.clear();
+    calculator.updateDisplay();
+})
+
+deleteButton.addEventListener('click', button => {
+    calculator.delete();
+    calculator.updateDisplay();
+})
