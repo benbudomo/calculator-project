@@ -2,6 +2,8 @@
 
 This project will be combining everything I learned so far in The Odin Project and making an on-screen calculator with JavaScript, HTML, and CSS.
 
+Update: % and +/- buttons do not work at the moment.
+
 ## Information and Goals
 
 * Create four functions that add, subtract, multiply, and divide
